@@ -1,0 +1,41 @@
+.title-sing-up{
+    color: #fff;
+    backface-visibility:hidden;
+    margin-bottom: 40px;
+}
+
+
+#already-have-account{
+    display: block;
+    color: white;
+}
+
+#rote-sign-in{
+    color: white;
+    cursor: pointer;
+}
+
+.title-working{
+    animation: moveInRight 1.2s;
+
+}
+
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media (max-width:1000px){
+    .text-box{
+        width: 90%;
+        background-color: #4e61a5;
+        padding: 36px;
+        border-radius: 26px;
+     }
+     
+}
