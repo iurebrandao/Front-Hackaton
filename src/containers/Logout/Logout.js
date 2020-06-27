@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import loading from '../../assets/gif/loading.svg'
 import Cookies from "js-cookie";
+import classes from './Logout.css';
 
 class Logout extends Component {
 
@@ -11,8 +12,8 @@ class Logout extends Component {
 
     render() {
         return (
-            <div class="div-home-page full-page">
-                <img alt="loading" src={loading}></img>
+            <div class="div-page-lout-loading">
+                <img class="image-loading" alt="loading" src={loading}></img>
             </div>
         );
     }
