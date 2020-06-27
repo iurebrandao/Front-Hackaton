@@ -10,26 +10,23 @@ class PaginaInicial extends Component {
 
 
                 <div className="conteudo-paginal-inicial">
-                        <div className="div-img div-card">
-                            <img className="" alt="imagem-inicial-pessoas" src={imagem_inicial} />
-                        </div>
-
-                    <div className="div-card">
-
-                        <div>
-                            <h1>Adote um Aluno</h1>
-                        </div>
-                        <div>
-                            Mais do que nunca, precisamos de uma comunidade forte. Precisamos do SEU apoio para sairmos dessa.
+                    <div className="div-img div-card">
+                        <img className="imagem-inicial-pessoas" alt="imagem-inicial-pessoas" src={imagem_inicial} />
                     </div>
 
-                        <div>
-                            <div onClick={(e) => this.props.routeTo("cadastro")} >
-                                <h1>Quero ajudar</h1>
+                    <div className="div-card">
+                        <div className="homepage-title">
+                            <h1>Adote um Aluno</h1>
+                        </div>
+                        <div className="div-homepage-text">
+                            <h3 className="homepage-text">Mais do que nunca, precisamos de uma comunidade forte. Precisamos do SEU apoio para sairmos dessa.</h3>
+                        </div>
+                        <div className="div-card-buttons">
+                            <div className="button-homepage" onClick={(e) => this.props.routeTo("cadastro")} >
+                                <h1 className="text-button-homepage">Quero ajudar</h1>
                             </div>
-
-                            <div onClick={(e) => this.props.routeTo("cadastro")} >
-                                <h1>Preciso de ajuda</h1>
+                            <div className="button-homepage margin-left" onClick={(e) => this.props.routeTo("cadastro")} >
+                                <h1 className="text-button-homepage">Preciso de ajuda</h1>
                             </div>
                         </div>
                     </div>
