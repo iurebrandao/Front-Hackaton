@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import classes from './SignIn.css';
 import { Button, Form, Input } from 'element-react';
-// import { Button } from '@material-ui/core';
-// import bgPink from '../../assets/img/bg-orange-left.svg'
-import bgOrange from '../../assets/img/bg-pink-right.svg'
 import Cookies from "js-cookie";
 
 class SignIn extends Component {
@@ -76,11 +73,7 @@ class SignIn extends Component {
         return (
             <div class="div-home-page full-page">
 
-                <div class="div-20 move-left-animation">
-                    {/* <img src={bgPink}></img> */}
-                </div>
 
-                <div class="div-60">
 
 
                     <div class="info">
@@ -109,16 +102,12 @@ class SignIn extends Component {
                             <Button color="primary" loading={this.state.loadingSignIn} onClick={(e) => this.handleSubmit(e)}>Login</Button>
 
                             <div>
-                                <p id="already-have-account"><a id="rote-sign-in" onClick={(e) => this.roteSignIn(e)}>Esqueci a senha</a></p>
+                                <p id="already-have-account"><a id="rote-sign-in" onClick={(e) => this.routeTo("sign-in")}>Esqueci a senha</a></p>
                             </div>
                         </div>
 
                     </div>
-                </div>
 
-                <div class="div-20 move-right-animation align-right">
-                    <img src={bgOrange}></img>
-                </div>
 
             </div>
         );

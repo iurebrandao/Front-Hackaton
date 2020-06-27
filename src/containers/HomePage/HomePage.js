@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import bgPink from '../../assets/img/bg-pink.svg'
-import bgOrange from '../../assets/img/bg-orange.svg'
+// import { NavLink } from 'react-router-dom';
 
 class HomePage extends Component {
 
@@ -14,9 +13,6 @@ class HomePage extends Component {
         return (
             <div class="div-home-page full-page">
 
-                <div class="div-20 move-left-animation">
-                    <img src={bgPink}></img>
-                </div>
 
                 <div class="div-60">
 
@@ -38,9 +34,7 @@ class HomePage extends Component {
                     </div>
                 </div>
 
-                <div class="div-20 move-right-animation align-right">
-                    <img src={bgOrange}></img>
-                </div>
+
 
             </div>
         );
