@@ -11,7 +11,7 @@ class PaginaInicial extends Component {
 
                 <div className="conteudo-paginal-inicial">
                         <div className="div-img div-card">
-                            <img className="paginal-inicial-imagem" alt="imagem-inicial-pessoas" src={imagem_inicial} />
+                            <img className="" alt="imagem-inicial-pessoas" src={imagem_inicial} />
                         </div>
 
                     <div className="div-card">

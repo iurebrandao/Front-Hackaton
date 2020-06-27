@@ -7,7 +7,10 @@ class Logout extends Component {
 
     componentDidMount = () => {
         Cookies.remove('tk');
-        window.location.reload()
+
+        setTimeout(function(){ 
+            window.location.reload()
+         }, 1500);
     }
 
     render() {
@@ -18,6 +21,5 @@ class Logout extends Component {
         );
     }
 }
-
 
 export default Logout;
