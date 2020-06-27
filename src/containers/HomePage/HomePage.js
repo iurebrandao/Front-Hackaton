@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import { NavLink } from 'react-router-dom';
 import MenuSuperior from "../../components/MenuSuperior/MenuSuperior";
+import PaginaInicial from "../../components/PaginaInicial/PaginaInicial";
 
 class HomePage extends Component {
 
@@ -14,7 +15,7 @@ class HomePage extends Component {
         return (
             <div class="div-home-page full-page">
                 <MenuSuperior></MenuSuperior>
-
+                <PaginaInicial></PaginaInicial>
             </div>
         );
     }

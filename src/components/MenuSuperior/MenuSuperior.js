@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import classes from './MenuSuperior.css';
-import unb_logo from "../../assets/img/unb_logo.svg"
+import unb_logo from "../../assets/img/unb_logo.svg";
 
 class MenuSuperior extends Component {
 
