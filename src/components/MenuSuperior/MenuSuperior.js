@@ -13,7 +13,9 @@ class MenuSuperior extends Component {
     render() {
         return (
             <div className="barraSuperior">
-                <img className="logoUnbBarra" alt="error" src={unb_logo} />
+                <div className="conteudoBarraSuperior">
+                    <img className="logoUnbBarra" alt="error" src={unb_logo} />
+                </div>
             </div>
         );
     }

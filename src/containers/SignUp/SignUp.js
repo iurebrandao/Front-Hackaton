@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classes from './SignUp.css';
 import { Button, Form, Input } from 'element-react';
+import MenuSuperior from "../../components/MenuSuperior/MenuSuperior";
 
 class SignUp extends Component {
     state = {
@@ -60,18 +61,13 @@ class SignUp extends Component {
 
             <div class="div-home-page full-page">
 
-                <div class="info">
-                    <h3 onClick={(e) => this.routeTo("")} class="info-text float-right">Início</h3>
-                    <h3 onClick={(e) => this.routeTo("sign-in")} class="info-text float-right">Login</h3>
-                    <h3 onClick={(e) => this.routeTo("sign-up")} class="info-text float-right">Cadastro</h3>
-                    <h3 onClick={(e) => this.routeTo("about")} class="info-text float-right">Sobre</h3>
-                </div>
+                <MenuSuperior></MenuSuperior>
 
-                <div class="area-inputs">
+
+                <div >
 
                     <h1 class="title-home-page title-color">Cadastro</h1>
 
-                    <div class="barra-azul"></div>
 
                     <div class="text-form-area">
 

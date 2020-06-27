@@ -28,42 +28,40 @@ class App extends Component {
     let routes;
     const token = Cookies.get('tk');
 
-
-    if(token){
+    //Rotas autenticadas
+    if (token) {
       routes = (
-
-
         <Switch>
           <Route path="/" exact component={HomePageAuth} />
           <Route path="/logout" exact component={Logout} />
           <Redirect to="/" />
         </Switch>
       )
-    }else{
+    } else {
       routes = (
-
-
+        //Rotas não aunteticadas
         <Switch>
           <Route path="/" exact component={HomePage} />
-  
+
           <Route path="/cadastro" exact component={SignUp} />
           <Route path="/sign-up" exact component={SignUp} />
-  
+
           <Route path="/login" exact component={SignIn} />
+          <Route path="/entrar" exact component={SignIn} />
           <Route path="/sign-in" exact component={SignIn} />
-  
+
           <Route path="/reset-password" exact component={ResetPassword} />
           <Route path="/esqueci-a-senha" exact component={ResetPassword} />
-  
+
           <Route path="/about" exact component={About} />
           <Route path="/sobre" exact component={About} />
-  
-  
+
+
           <Redirect to="/" />
         </Switch>
       )
     }
-   
+
     return (
       <div>
         {routes}

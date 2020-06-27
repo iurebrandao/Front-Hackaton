@@ -13,3 +13,12 @@
 .div-img{
     margin-top:calc((100vh - 50px)*0.1) ;
 }
+
+.conteudo-paginal-inicial{
+    display: flex;
+}
+
+.div-card{
+    display: inline-block;
+    width: calc( 50% );
+}
