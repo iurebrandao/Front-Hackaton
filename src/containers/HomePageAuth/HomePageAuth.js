@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
         height: '90vh',
         overflow: 'auto',
         marginTop: 64,
-        paddingTop: 80,
+        paddingTop: 40,
         backgroundColor: '#f7f6f6'
     },
     container: {
