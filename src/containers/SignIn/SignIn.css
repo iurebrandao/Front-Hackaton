@@ -1,49 +1,26 @@
-.title-sing-up{
-    color: #fff;
-    backface-visibility:hidden;
-    margin-bottom: 40px;
+.div-card-sign-in{
+    display: inline-block;
+    position: relative;
+    width: calc(50% - 60px);
+    background: #FFFFFF;
+    box-shadow: 0px -21px 84px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    border-radius: 41px;
+    height: 500px;
+    margin-top: calc(50vh - 300px);
 }
 
-.text-box{
-    width: 50%;
-    background-color: #0a1333c7;
-    padding: 64px;
-    border-radius: 27px;
-    animation: FadeIn 2s;
+.center{
+    text-align: center;
 }
 
-#already-have-account{
-    display: block;
-    color: white;
+.title-sign-in{
+    padding-top: 40px;
+}
+.input-sign-in{
+    width: 100%;
 }
 
-#rote-sign-in{
-    color: white;
-    cursor: pointer;
-}
-
-.title-working{
-    animation: moveInRight 1.2s;
-
-}
-
-
-@keyframes FadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@media (max-width:1000px){
-    .text-box{
-        width: 90%;
-        background-color: #0a1333c7;
-        /* background-color: #4e61a5; */
-        padding: 36px;
-        border-radius: 26px;
-     }
-     
+.dont-have-account{
+    padding-top: 20px;
 }

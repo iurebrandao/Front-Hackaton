@@ -14,7 +14,7 @@ class MenuSuperior extends Component {
         return (
             <div className="barraSuperior">
                 <div className="conteudoBarraSuperior">
-                    <img className="logoUnbBarra" alt="error" src={unb_logo} />
+                    <img onClick={(e) => this.props.routeTo("")} className="logoUnbBarra" alt="error" src={unb_logo} />
                 </div>
             </div>
         );

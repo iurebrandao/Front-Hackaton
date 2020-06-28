@@ -1,41 +1,19 @@
-.title-sing-up{
-    color: #fff;
-    backface-visibility:hidden;
-    margin-bottom: 40px;
+.card-input{
+    margin-top: 15px;
 }
 
-
-#already-have-account{
-    display: block;
-    color: white;
+.MuiSwitch-colorSecondary.Mui-checked{
+    color: 	#143c7c !important;
 }
 
-#rote-sign-in{
-    color: white;
+.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
+    background-color: #143c7c !important;
+}
+.anchor-home-page{
+    color: #143c7c;
     cursor: pointer;
 }
 
-.title-working{
-    animation: moveInRight 1.2s;
-
-}
-
-
-@keyframes FadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@media (max-width:1000px){
-    .text-box{
-        width: 90%;
-        background-color: #4e61a5;
-        padding: 36px;
-        border-radius: 26px;
-     }
-     
+.anchor-home-page:hover{
+    font-weight: bold;
 }

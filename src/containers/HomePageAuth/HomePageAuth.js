@@ -5,12 +5,15 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems } from '../../components/Items/Items';
+import Items from '../../components/Items/Items';
+import Adopt from '../../containers/Adopt/Adopt';
+import Material from '../../containers/Material/Material';
+import Classes from '../../containers/Classes/Classes';
+import Covid from '../../containers/Covid/Covid';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -27,6 +30,7 @@ const useStyles = makeStyles((theme) => ({
         ...theme.mixins.toolbar,
     },
     appBar: {
+        backgroundColor: '#ffffff',
         zIndex: theme.zIndex.drawer + 1,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
@@ -34,8 +38,9 @@ const useStyles = makeStyles((theme) => ({
         }),
     },
     appBarShift: {
-        marginLeft: 240,
-        width: `calc(100% - 240px)`,
+        marginLeft: 340,
+        backgroundColor: '#ffffff',
+        width: `calc(100% - 340px)`,
         transition: theme.transitions.create(['width', 'margin'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -53,7 +58,7 @@ const useStyles = makeStyles((theme) => ({
     drawerPaper: {
         position: 'relative',
         whiteSpace: 'nowrap',
-        width: 240,
+        width: 340,
     },
     drawerPaperClose: {
         overflowX: 'hidden',
@@ -71,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
         height: '100vh',
         overflow: 'auto',
+        marginTop: 64
     },
     container: {
         paddingTop: theme.spacing(4),
@@ -90,12 +96,15 @@ const useStyles = makeStyles((theme) => ({
 export default function Dashboard() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
+    const [menuSelected, setMenuSelected] = React.useState('adopt');
     const handleDrawerOpen = () => {
         setOpen(true);
     };
     const handleDrawerClose = () => {
         setOpen(false);
     };
+
+
 
     return (
         <div className={classes.root}>
@@ -107,7 +116,7 @@ export default function Dashboard() {
                 <Toolbar className={classes.toolbar}>
                     <IconButton
                         edge="start"
-                        color="inherit"
+                        color="#000000"
                         aria-label="open drawer"
                         onClick={handleDrawerOpen}
                         className={clsx(
@@ -134,10 +143,21 @@ export default function Dashboard() {
                     </IconButton>
                 </div>
                 <Divider />
-                <List>{mainListItems}</List>
+                <Items menuSelected={menuSelected} setMenuSelected={setMenuSelected}/>
             </Drawer>
             <main className={classes.content}>
-
+                {
+                    menuSelected === 'material' && (<Material/>)
+                }
+                {
+                    menuSelected === 'adopt' && (<Adopt/>)
+                }
+                {
+                    menuSelected === 'classes' && (<Classes/>)
+                }
+                {
+                    menuSelected === 'covid' && (<Covid/>)
+                }
             </main>
         </div>
     );

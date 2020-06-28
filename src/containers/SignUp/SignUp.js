@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import classes from './SignUp.css';
-import { Button, Form, Input } from 'element-react';
 import MenuSuperior from "../../components/MenuSuperior/MenuSuperior";
+import imagem_inicial from "../../assets/img/imagem-pagina-inicial.png";
+import Switch from '@material-ui/core/Switch';
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
 
 class SignUp extends Component {
     state = {
         loadingSignUp: false,
         sucessSignUp: false,
+        checkedAluno: false,
         form: {
             email: '',
             password: '',
@@ -42,18 +46,13 @@ class SignUp extends Component {
         });
     }
 
+    handleChange = (event) => {
+        this.setState({ checkedAluno: event.target.checked });
+    };
+
     handleSubmit(e) {
         e.preventDefault();
-        this.setState({ loadingSignUp: true });
 
-
-        this.refs.form.validate((valid) => {
-            if (valid) {
-                this.setState({ sucessSignUp: true });
-            } else {
-                this.setState({ loadingSignUp: false });
-            }
-        });
     }
 
     render() {
@@ -61,27 +60,68 @@ class SignUp extends Component {
 
             <div class="div-home-page full-page">
 
-                <MenuSuperior></MenuSuperior>
+                <MenuSuperior routeTo={this.routeTo}></MenuSuperior>
+
+                <div className="conteudo-paginal-inicial">
+
+                    <div className="div-card">
+                        <div className="homepage-title">
+                            <h1>Cadastro</h1>
+                        </div>
+                        <div className="div-homepage-text">
+                            <h3 className="homepage-text">Quase lá ! Preencha apenas só essas informações e ja poderá adotar um aluno :)</h3>
+                        </div>
+                        <div className="div-homepage-text">
+                            <p>Já tem conta ? <a className="anchor-home-page" onClick={(e) => this.routeTo("sign-in")}  >Clique para entrar</a></p>
+                        </div>
 
 
-                <div >
+                        <div className="div-card-input">
+                            <div className="card-input">
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Email"
+                                    type="email"
+                                    autoComplete="current-password"
+                                    variant="outlined"
+                                />
+                            </div>
+                            <div className="card-input">
 
-                    <h1 class="title-home-page title-color">Cadastro</h1>
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Senha"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    variant="outlined"
+                                />
+                            </div>
+                            <div className="card-input">
 
-
-                    <div class="text-form-area">
-
-                        <Form id="teste" htmlFor="email" className={classes.allForm} ref="form" model={this.state.form} rules={this.state.rules}>
-                            <Form.Item prop="email" labelWidth="0px">
-                                <Input className="inputs-sing-up" placeholder={"Email"} type="text" value={this.state.form.email} onChange={this.onChange.bind(this, 'email')} onKeyPress={this.handleKeyPress} />
-                            </Form.Item>
-                            <Form.Item prop="password" labelWidth="0px">
-                                <Input className="inputs-sing-up" placeholder={"Senha"} type="password" value={this.state.form.password} onChange={this.onChange.bind(this, 'password')} onKeyPress={this.handleKeyPress} />
-                            </Form.Item>
-                        </Form>
-
-                        <Button color="primary" loading={this.state.loadingSignUp} onClick={(e) => this.handleSubmit(e)}>Cadastrar</Button>
-
+                                <TextField
+                                    id="outlined-password-input"
+                                    label="Confirme sua senha"
+                                    type="password"
+                                    autoComplete="current-password"
+                                    variant="outlined"
+                                />
+                            </div>
+                            <div>
+                                <label>Sou um aluno</label>
+                                <Switch
+                                    checked={this.state.checkedAluno}
+                                    onChange={this.handleChange}
+                                    name="checkedA"
+                                    inputProps={{ 'aria-label': 'secondary checkbox' }}
+                                />
+                            </div>
+                            <Button onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
+                                Cadastrar
+                            </Button>
+                        </div>
+                    </div>
+                    <div className="div-img div-card">
+                        <img className="imagem-inicial-cadastro" alt="imagem-inicial-pessoas" src={imagem_inicial} />
                     </div>
                 </div>
             </div>
