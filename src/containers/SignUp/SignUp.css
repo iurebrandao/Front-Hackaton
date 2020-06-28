@@ -17,3 +17,11 @@
 .anchor-home-page:hover{
     font-weight: bold;
 }
+
+.opacity{
+    opacity: 0.2;
+}
+
+.loading-sing-up{
+    z-index: 1000;
+}

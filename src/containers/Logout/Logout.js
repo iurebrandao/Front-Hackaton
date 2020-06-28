@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import loading from '../../assets/gif/loading.svg'
+import loading from '../../assets/gif/loading.svg';
 import Cookies from "js-cookie";
 import classes from './Logout.css';
 import MenuSuperior from "../../components/MenuSuperior/MenuSuperior";
