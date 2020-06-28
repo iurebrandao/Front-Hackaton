@@ -66,3 +66,19 @@
 .divAnotherBook:hover{
     background-image: linear-gradient(rgba(35, 35, 35, 0.80), rgba(35, 35, 35, 0.80)),url('../../assets/img/books2.png');
 }
+.MuiChip-root{
+    background-color: #02397A !important;
+    color: #ffffff !important;
+}
+.MuiChip-deleteIcon{
+    color: #ffffff !important;
+}
+.divButton{
+    width: 55%;
+    text-align: right;
+    padding-top: 100px;
+}
+.button{
+    background-color: rgba(0, 137, 64, 1) !important;
+    color: #ffffff !important;
+}

@@ -1,9 +1,25 @@
 import React from 'react';
 import './Adopt.css';
-import books from '../../assets/img/books.png'
+import Button from '@material-ui/core/Button';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import TextField from '@material-ui/core/TextField';
+import CloseIcon from '@material-ui/icons/Close';
+import styled from 'styled-components';
+
 
 const Adopt = (props) => {
     const [step, setStep] = React.useState(0);
+    const areas = [
+        { label: 'Eng. De Software', value: 'Eng. De Software' },
+        { label: 'Artes', value: 'Artes' },
+        { label: 'Filosofia', value: 'Filosofia' },
+    ];
+    const Tag = styled(({ label, onDelete, ...props }) => (
+        <div {...props}>
+            <span>{label}</span>
+            <CloseIcon onClick={onDelete} />
+        </div>
+    ))
 
     const getStep = () =>{
         switch (step) {
@@ -37,9 +53,28 @@ const Adopt = (props) => {
             case 1:
                 return(
                     <React.Fragment>
-                        <h2 className="title"> Indique o seu curso </h2>
-                        <h2 className="sub-title"> Agora, indique qual o seu curso. </h2>
+                        <h2 className="title"> Áreas de Interesse </h2>
+                        <h2 className="sub-title"> Indique em quais disciplinas você gostaria de ajudar o seu aluno!  </h2>
                         <div className="divOptions">
+                            <Autocomplete
+                                multiple
+                                id="tags-standard"
+                                options={areas}
+                                getOptionLabel={(option) => option.label}
+                                renderInput={(params) => (
+                                    <TextField
+                                        {...params}
+                                        variant="standard"
+                                        label="Áreas"
+                                        placeholder="Digite aqui as áreas desejadas"
+                                    />
+                                )}
+                            />
+                            <div className="divButton">
+                                <Button size="large" variant="contained" className="button">
+                                    Avançar
+                                </Button>
+                            </div>
 
                         </div>
                     </React.Fragment>
