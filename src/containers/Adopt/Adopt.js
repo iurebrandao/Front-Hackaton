@@ -3,8 +3,7 @@ import './Adopt.css';
 import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
-import CloseIcon from '@material-ui/icons/Close';
-import styled from 'styled-components';
+import user from "../../assets/img/user.png";
 
 
 const Adopt = (props) => {
@@ -14,12 +13,6 @@ const Adopt = (props) => {
         { label: 'Artes', value: 'Artes' },
         { label: 'Filosofia', value: 'Filosofia' },
     ];
-    const Tag = styled(({ label, onDelete, ...props }) => (
-        <div {...props}>
-            <span>{label}</span>
-            <CloseIcon onClick={onDelete} />
-        </div>
-    ))
 
     const getStep = () =>{
         switch (step) {
@@ -71,12 +64,41 @@ const Adopt = (props) => {
                                 )}
                             />
                             <div className="divButton">
-                                <Button size="large" variant="contained" className="button">
+                                <Button size="large" variant="contained" className="button" onClick={() => setStep(2)}>
                                     Avançar
                                 </Button>
                             </div>
 
                         </div>
+                    </React.Fragment>
+                )
+            case 2:
+                return(
+                    <React.Fragment>
+                        <h2 className="title"> Conheça seu Aluno </h2>
+                        <div className="divOptionsUser">
+                            <div className="divImage">
+                                <img className="image" src={user}/>
+                            </div>
+                            <div className="divTextImage">
+                                <h2 className="titleName">David</h2>
+                                <h2 className="textUser">19 anos</h2>
+                                <h2 className="textUser">Engenharia Mecatrônica</h2>
+                                <h2 className="textUser">Engenharia de Software e Software Básico</h2>
+                            </div>
+                            <div className="divButton">
+                                <Button size="large" variant="contained" className="button" onClick={() => setStep(3)}>
+                                    Conversar com David
+                                </Button>
+                            </div>
+                        </div>
+                    </React.Fragment>
+                )
+            case 3:
+                return(
+                    <React.Fragment>
+                        <h2 className="title"> Suas conexões </h2>
+
                     </React.Fragment>
                 )
         }
