@@ -9,9 +9,9 @@ class Logout extends Component {
     componentDidMount = () => {
         Cookies.remove('tk');
 
-        setTimeout(function(){ 
+        setTimeout(function () {
             window.location.reload()
-         }, 1500);
+        }, 1500);
     }
 
     render() {

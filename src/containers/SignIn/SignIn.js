@@ -80,16 +80,15 @@ class SignIn extends Component {
         return (
             <div class="div-home-page full-page center">
 
-                <MenuSuperior></MenuSuperior>
+                <MenuSuperior routeTo={this.routeTo}></MenuSuperior>
 
                 <div className="div-card-sign-in">
                     <div className="div-card">
                         <div>
                             <h1 className="title-sign-in">Entrar</h1>
                         </div>
-                        <div className="div-homepage-text">
-                        <p>Ainda não tem conta ? <a className="anchor-home-page" onClick={(e) => this.routeTo("sign-up")}  >Clique para cadastrar</a></p>
-                        
+                        <div >
+                            <p className="dont-have-account">Ainda não tem conta ? <a className="anchor-home-page" onClick={(e) => this.routeTo("sign-up")}  >Clique para cadastrar</a></p>
                         </div>
                         <div className="div-card-input">
                             <div className="card-input">

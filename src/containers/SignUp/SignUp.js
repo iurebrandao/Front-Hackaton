@@ -52,16 +52,7 @@ class SignUp extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.setState({ loadingSignUp: true });
 
-
-        this.refs.form.validate((valid) => {
-            if (valid) {
-                this.setState({ sucessSignUp: true });
-            } else {
-                this.setState({ loadingSignUp: false });
-            }
-        });
     }
 
     render() {
@@ -69,7 +60,7 @@ class SignUp extends Component {
 
             <div class="div-home-page full-page">
 
-                <MenuSuperior></MenuSuperior>
+                <MenuSuperior routeTo={this.routeTo}></MenuSuperior>
 
                 <div className="conteudo-paginal-inicial">
 
@@ -125,7 +116,7 @@ class SignUp extends Component {
                                 />
                             </div>
                             <Button onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
-                                Entrar
+                                Cadastrar
                             </Button>
                         </div>
                     </div>
