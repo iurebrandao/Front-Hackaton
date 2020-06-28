@@ -14,7 +14,7 @@ class HomePage extends Component {
     render() {
         return (
             <div class="div-home-page full-page">
-                <MenuSuperior></MenuSuperior>
+                <MenuSuperior routeTo={this.routeTo}></MenuSuperior>
                 <PaginaInicial routeTo={this.routeTo}></PaginaInicial>
             </div>
         );
