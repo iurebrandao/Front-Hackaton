@@ -5,6 +5,8 @@ import imagem_inicial from "../../assets/img/imagem-pagina-inicial.png";
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import loading from '../../assets/gif/loading.svg';
+import Cookies from "js-cookie";
 
 class SignUp extends Component {
     state = {
@@ -52,7 +54,19 @@ class SignUp extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({ loadingSignUp: true });
 
+        setTimeout(function () {
+
+            const expirationDate = new Date(new Date().getTime() + 1111110 * 1000);
+            let token = "tokentesteblabla";
+            Cookies.set('tk', token, {
+                expires: expirationDate,
+                secure: (window.location.protocol === 'https:')
+            });
+
+            window.location.reload();
+        }, 1500);
     }
 
     render() {
@@ -62,10 +76,14 @@ class SignUp extends Component {
 
                 <MenuSuperior routeTo={this.routeTo}></MenuSuperior>
 
-                <div className="conteudo-paginal-inicial">
 
-                    <div className="div-card">
-                        <div className="homepage-title">
+                {this.state.loadingSignUp ? (<img class="image-loading loading-sing-up" alt="loading" src={loading}></img>) : (null)}
+
+
+                <div className={this.state.loadingSignUp ? ("conteudo-paginal-inicial opacity") : ("conteudo-paginal-inicial")}>
+
+                    <div className="div-card first-card div-card-top">
+                        <div>
                             <h1>Cadastro</h1>
                         </div>
                         <div className="div-homepage-text">
@@ -77,7 +95,7 @@ class SignUp extends Component {
 
 
                         <div className="div-card-input">
-                            <div className="card-input">
+                            <div className="card-input input-sign-up-size">
                                 <TextField
                                     id="outlined-password-input"
                                     label="Email"
@@ -86,8 +104,7 @@ class SignUp extends Component {
                                     variant="outlined"
                                 />
                             </div>
-                            <div className="card-input">
-
+                            <div className="card-input input-sign-up-size">
                                 <TextField
                                     id="outlined-password-input"
                                     label="Senha"
@@ -96,7 +113,7 @@ class SignUp extends Component {
                                     variant="outlined"
                                 />
                             </div>
-                            <div className="card-input">
+                            <div className="card-input input-sign-up-size">
 
                                 <TextField
                                     id="outlined-password-input"
@@ -115,7 +132,7 @@ class SignUp extends Component {
                                     inputProps={{ 'aria-label': 'secondary checkbox' }}
                                 />
                             </div>
-                            <Button onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
+                            <Button className="button-sign-up" onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
                                 Cadastrar
                             </Button>
                         </div>

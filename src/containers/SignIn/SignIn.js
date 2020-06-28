@@ -123,7 +123,7 @@ class SignIn extends Component {
                                 />
                             </div>
 
-                            <Button onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
+                            <Button className="button-sign-in" onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
                                 Entrar
                             </Button>
 
