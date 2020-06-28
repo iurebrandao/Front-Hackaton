@@ -8,7 +8,6 @@ class PaginaInicial extends Component {
         return (
             <div className="full-page">
 
-
                 <div className="conteudo-paginal-inicial">
                     <div className="div-img div-card">
                         <img className="imagem-inicial-pessoas" alt="imagem-inicial-pessoas" src={imagem_inicial} />
