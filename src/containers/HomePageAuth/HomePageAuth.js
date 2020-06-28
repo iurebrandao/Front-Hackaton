@@ -9,11 +9,14 @@ import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import SearchIcon from '@material-ui/icons/Search';
 import Items from '../../components/Items/Items';
 import Adopt from '../../containers/Adopt/Adopt';
 import Material from '../../containers/Material/Material';
 import Classes from '../../containers/Classes/Classes';
 import Covid from '../../containers/Covid/Covid';
+import unb from "../../assets/img/unb_logo.svg";
+import './HomePageAuth.css';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -74,9 +77,11 @@ const useStyles = makeStyles((theme) => ({
     appBarSpacer: theme.mixins.toolbar,
     content: {
         flexGrow: 1,
-        height: '100vh',
+        height: '90vh',
         overflow: 'auto',
-        marginTop: 64
+        marginTop: 64,
+        paddingTop: 80,
+        backgroundColor: '#f7f6f6'
     },
     container: {
         paddingTop: theme.spacing(4),
@@ -126,7 +131,9 @@ export default function Dashboard() {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <IconButton color="inherit">
+                    <img className="logoUnb" src={unb}/>
+                    <IconButton color="#000000">
+                        <SearchIcon/>
                     </IconButton>
                 </Toolbar>
             </AppBar>

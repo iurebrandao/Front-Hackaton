@@ -9,7 +9,6 @@ const Item = (props) => {
                 {
                     props.selected && (<img className="circle" src={circle}/>)
                 }
-
             </div>
             <div className="divIcon">
                 <img className="icon" alt="loading" src={props.icon}/>
