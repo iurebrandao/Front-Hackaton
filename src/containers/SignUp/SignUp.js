@@ -82,7 +82,7 @@ class SignUp extends Component {
 
                 <div className={this.state.loadingSignUp ? ("conteudo-paginal-inicial opacity") : ("conteudo-paginal-inicial")}>
 
-                    <div className="div-card">
+                    <div className="div-card first-card div-card-top">
                         <div>
                             <h1>Cadastro</h1>
                         </div>
@@ -95,7 +95,7 @@ class SignUp extends Component {
 
 
                         <div className="div-card-input">
-                            <div className="card-input">
+                            <div className="card-input input-sign-up-size">
                                 <TextField
                                     id="outlined-password-input"
                                     label="Email"
@@ -104,8 +104,7 @@ class SignUp extends Component {
                                     variant="outlined"
                                 />
                             </div>
-                            <div className="card-input">
-
+                            <div className="card-input input-sign-up-size">
                                 <TextField
                                     id="outlined-password-input"
                                     label="Senha"
@@ -114,7 +113,7 @@ class SignUp extends Component {
                                     variant="outlined"
                                 />
                             </div>
-                            <div className="card-input">
+                            <div className="card-input input-sign-up-size">
 
                                 <TextField
                                     id="outlined-password-input"
@@ -133,7 +132,7 @@ class SignUp extends Component {
                                     inputProps={{ 'aria-label': 'secondary checkbox' }}
                                 />
                             </div>
-                            <Button onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
+                            <Button className="button-sign-up" onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
                                 Cadastrar
                             </Button>
                         </div>
