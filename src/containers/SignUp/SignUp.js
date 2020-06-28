@@ -5,7 +5,7 @@ import imagem_inicial from "../../assets/img/imagem-pagina-inicial.png";
 import Switch from '@material-ui/core/Switch';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import loading from '../../assets/gif/loading.svg';
+import loading from '../../assets/gif/loading-circle.svg';
 import Cookies from "js-cookie";
 
 class SignUp extends Component {
