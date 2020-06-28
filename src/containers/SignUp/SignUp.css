@@ -1,9 +1,19 @@
 .card-input{
     margin-top: 15px;
 }
+
 .MuiSwitch-colorSecondary.Mui-checked{
     color: 	#143c7c !important;
 }
+
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
     background-color: #143c7c !important;
+}
+.anchor-home-page{
+    color: #143c7c;
+    cursor: pointer;
+}
+
+.anchor-home-page:hover{
+    font-weight: bold;
 }

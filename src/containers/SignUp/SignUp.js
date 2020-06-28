@@ -45,6 +45,7 @@ class SignUp extends Component {
             pathname: '/' + destiny,
         });
     }
+
     handleChange = (event) => {
         this.setState({ checkedAluno: event.target.checked });
     };
@@ -79,6 +80,11 @@ class SignUp extends Component {
                         <div className="div-homepage-text">
                             <h3 className="homepage-text">Quase lá ! Preencha apenas só essas informações e ja poderá adotar um aluno :)</h3>
                         </div>
+                        <div className="div-homepage-text">
+                            <p>Já tem conta ? <a className="anchor-home-page" onClick={(e) => this.routeTo("sign-in")}  >Clique para entrar</a></p>
+                        </div>
+
+
                         <div className="div-card-input">
                             <div className="card-input">
                                 <TextField

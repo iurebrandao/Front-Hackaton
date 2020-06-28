@@ -41,7 +41,6 @@ class SignIn extends Component {
         }
     };
 
-
     handleChange = (event) => {
         this.setState({ checkedCookies: event.target.checked });
     };
@@ -51,7 +50,6 @@ class SignIn extends Component {
             pathname: '/' + destiny,
         });
     }
-
 
     handleSubmit(e) {
         e.preventDefault();
@@ -90,6 +88,8 @@ class SignIn extends Component {
                             <h1 className="title-sign-in">Entrar</h1>
                         </div>
                         <div className="div-homepage-text">
+                        <p>Ainda não tem conta ? <a className="anchor-home-page" onClick={(e) => this.routeTo("sign-up")}  >Clique para cadastrar</a></p>
+                        
                         </div>
                         <div className="div-card-input">
                             <div className="card-input">
