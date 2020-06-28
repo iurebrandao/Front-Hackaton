@@ -25,3 +25,26 @@
 .loading-sing-up{
     z-index: 1000;
 }
+.first-card{
+    padding-left: 20%;
+}
+
+.input-sign-up-size{
+    width: 70%;
+}
+
+#outlined-password-input{
+    width: 70%;
+}
+
+.div-card-top{
+    margin-top: calc((100vh - 50px)*0.1);
+}
+
+.MuiFormControl-root{
+    width: 100%;
+}
+
+.button-sign-up{
+    width: 70%;
+}
