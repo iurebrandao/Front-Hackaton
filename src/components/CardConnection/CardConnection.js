@@ -18,7 +18,7 @@ const CardConnection = (props) =>{
     return(
         <div className="cardConnection">
             <div className="divImage">
-                <Avatar alt="Remy Sharp" src={image} className={classes.large} />
+                <Avatar alt="User" src={image} className={classes.large} />
             </div>
             <div className="divInfo">
                 <h2 className="titleCardName">{name}</h2>

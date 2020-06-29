@@ -34,11 +34,20 @@ const Adopt = (props) => {
                             </div>
                             <div className="divAnotherBook" onClick={() => setStep(1)}>
                                 <h2 className="titleOption">
-                                    Ajudar com <br/> Material e Mentoria
+                                    Ajudar com Material e Mentoria
                                 </h2>
                                 <h2 className="subtitleOption">
                                     Gostaria de ajudar fornecendo livros, artigos <br/> e quaisquer outros materiais que
                                     possam auxiliar no estudo do aluno, bem como auxiliá-lo no entendimento da matéria e afins.
+                                </h2>
+                            </div>
+                            <div className="divCar" onClick={() => setStep(1)}>
+                                <h2 className="titleOption">
+                                    Ajudar com atividades do cotidiano acadêmico
+                                </h2>
+                                <h2 className="subtitleOption">
+                                    Gostaria de fornecer caronas, ser guia do campus e
+                                    quaisquer outros tipos de auxílios da rotina acadêmica.
                                 </h2>
                             </div>
                         </div>
