@@ -8,14 +8,20 @@ import covid from "../../assets/img/covid.svg";
 import './Items.css';
 
 const Items = (props) => {
-    let {menuSelected, setMenuSelected, open} = props;
+    let {menuSelected, setMenuSelected, setStep, open} = props;
+
+    const setAdopt = () =>{
+        setMenuSelected('adopt');
+        setStep(0);
+    }
+
     return(
         <div className="divItems">
             <ListItem button className="listItem" onClick={() => setMenuSelected('material')}>
                 <Item icon={material} title={"Material Didático"} text={<h2 className="text"> Confira os materiais</h2>}
                       selected={menuSelected === 'material'} open={open}/>
             </ListItem>
-            <ListItem button className="listItem" onClick={() => setMenuSelected('adopt')}>
+            <ListItem button className="listItem" onClick={() => setAdopt() }>
                 <Item icon={adopt} title={"Adotar um Aluno"} text={<h2 className="text"> Ajude quem precisa</h2>}
                       selected={menuSelected === 'adopt'} open={open}
                 />

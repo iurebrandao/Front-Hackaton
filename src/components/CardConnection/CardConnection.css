@@ -40,3 +40,10 @@
     background-color: rgba(0, 137, 64, 1) !important;
     color: #ffffff !important;
 }
+.divRatingTitle{
+    display: flex;
+    flex-direction: row;
+}
+.ratingUser{
+    margin-left: 30px;
+}

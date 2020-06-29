@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -100,16 +100,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
     const classes = useStyles();
-    const [open, setOpen] = React.useState(true);
-    const [menuSelected, setMenuSelected] = React.useState('adopt');
+    const [open, setOpen] = useState(true);
+    const [step, setStep] = useState(0);
+    const [menuSelected, setMenuSelected] = useState('adopt');
     const handleDrawerOpen = () => {
         setOpen(true);
     };
     const handleDrawerClose = () => {
         setOpen(false);
     };
-
-
 
     return (
         <div className={classes.root}>
@@ -150,14 +149,14 @@ export default function Dashboard() {
                     </IconButton>
                 </div>
                 <Divider />
-                <Items menuSelected={menuSelected} setMenuSelected={setMenuSelected} open={open}/>
+                <Items menuSelected={menuSelected} setMenuSelected={setMenuSelected} setStep={setStep} open={open}/>
             </Drawer>
             <main className={classes.content}>
                 {
                     menuSelected === 'material' && (<Material/>)
                 }
                 {
-                    menuSelected === 'adopt' && (<Adopt/>)
+                    menuSelected === 'adopt' && (<Adopt step={step} setStep={setStep}/>)
                 }
                 {
                     menuSelected === 'classes' && (<Classes/>)

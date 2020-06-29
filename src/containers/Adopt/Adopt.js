@@ -8,7 +8,8 @@ import CardConnection from "../../components/CardConnection/CardConnection";
 
 
 const Adopt = (props) => {
-    const [step, setStep] = React.useState(0);
+    let {step, setStep} = props;
+
     const areas = [
         { label: 'Eng. De Software', value: 'Eng. De Software' },
         { label: 'Artes', value: 'Artes' },
@@ -109,10 +110,10 @@ const Adopt = (props) => {
                     <React.Fragment>
                         <h2 className="title"> Suas conexões </h2>
                         <div className="divConnections">
-                            <CardConnection image={user} name={'David'} age={19} />
-                            <CardConnection image={user} name={'Cleiton'} age={23} />
-                            <CardConnection image={user} name={'Jailson'} age={30} />
-                            <CardConnection image={user} name={'Queilson'} age={47} />
+                            <CardConnection image={user} name={'David'} age={19} rating={5}/>
+                            <CardConnection image={user} name={'Cleiton'} age={23} rating={4} />
+                            <CardConnection image={user} name={'Jailson'} age={30} rating={2}/>
+                            <CardConnection image={user} name={'Queilson'} age={47} rating={1}/>
                         </div>
                     </React.Fragment>
                 )
