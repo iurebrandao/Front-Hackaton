@@ -5,7 +5,6 @@ Para instalar as dependências do projeto, execute o seguinte comando:
 
 ```
 make build
-
 ```
 ## Rodar o Projeto
 
