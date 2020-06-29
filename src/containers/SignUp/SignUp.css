@@ -33,10 +33,6 @@
     width: 70%;
 }
 
-#outlined-password-input{
-    width: 70%;
-}
-
 .div-card-top{
     margin-top: calc((100vh - 50px)*0.1);
 }
