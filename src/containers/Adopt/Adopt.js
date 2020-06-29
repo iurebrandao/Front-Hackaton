@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
 import user from "../../assets/img/user.png";
+import CardConnection from "../../components/CardConnection/CardConnection";
 
 
 const Adopt = (props) => {
@@ -98,7 +99,12 @@ const Adopt = (props) => {
                 return(
                     <React.Fragment>
                         <h2 className="title"> Suas conexões </h2>
-
+                        <div className="divConnections">
+                            <CardConnection image={user} name={'David'} age={19} />
+                            <CardConnection image={user} name={'Cleiton'} age={23} />
+                            <CardConnection image={user} name={'Jailson'} age={30} />
+                            <CardConnection image={user} name={'Queilson'} age={47} />
+                        </div>
                     </React.Fragment>
                 )
         }

@@ -46,7 +46,7 @@
     vertical-align: top;
     color: antiquewhite;
     background-image: linear-gradient(rgba(35, 35, 35, 0.87), rgba(35, 35, 35, 0.87)),url('../../assets/img/books.png');
-    box-shadow: 10px 8px 5px -2px rgba(0, 137, 64, 0.6);
+    box-shadow: 10px 8px 0px -2px rgba(0, 137, 64, 0.6);
 }
 .divBook:hover{
     background-image: linear-gradient(rgba(35, 35, 35, 0.80), rgba(35, 35, 35, 0.80)),url('../../assets/img/books.png');
@@ -61,7 +61,7 @@
     height: 40vh;
     color: antiquewhite;
     background-image: linear-gradient(rgba(35, 35, 35, 0.87), rgba(35, 35, 35, 0.87)),url('../../assets/img/books2.png');
-    box-shadow: 10px 8px 5px -2px rgba(0, 137, 64, 0.6);
+    box-shadow: 10px 8px 0px -2px rgba(0, 137, 64, 0.6);
 }
 .divAnotherBook:hover{
     background-image: linear-gradient(rgba(35, 35, 35, 0.80), rgba(35, 35, 35, 0.80)),url('../../assets/img/books2.png');
@@ -114,4 +114,7 @@
     font-size: 16px;
     line-height: 19px;
     margin-top: 10px;
+}
+.divConnections{
+    width: calc(100% - 60px);
 }
