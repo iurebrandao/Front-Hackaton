@@ -106,7 +106,7 @@ class SignUp extends Component {
             'email': this.state.form.email,
             'password': this.state.form.password,
             'phone': this.state.form.phone,
-            'birthday': this.state.form.birthday,
+            'birthdate': this.state.form.birthday,
         }
 
         axios.SignUp(obj)

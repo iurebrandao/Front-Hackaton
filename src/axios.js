@@ -9,6 +9,6 @@ export default {
         return instance.post('/auth/login', data);
     },
     SignUp(data) {
-        return instance.post('/auth/users', data);
+        return instance.post('/users', data);
     },
 };
