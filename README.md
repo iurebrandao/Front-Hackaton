@@ -8,7 +8,7 @@
 
 ## Sobre o projeto
 
-Plataforma colaborativa onde alunos podem ajudar outros alunos em situações
+- Plataforma colaborativa onde alunos podem ajudar outros alunos em situações
 adversas como a pandemia de COVID. A ferramenta é embasada na
 funcionalidade “adoção de alunos” que promove o compartilhamento de
 materiais, mentorias, etc a fim de minimizar os problemas de acessibilidade à
@@ -16,7 +16,7 @@ recursos acadêmicos que a pandemia gera para a comunidade acadêmica.
 
 ## Instalação do Projeto
 
-Para instalar as dependências do projeto, execute o seguinte comando:
+- Para instalar as dependências do projeto, execute o seguinte comando:
 
 ```
 make build
@@ -30,3 +30,7 @@ make build
 ```
 make up
 ```
+
+## Mockup
+
+- Todas as telas foram elaboradas seguindo o prototipo previamente desenhado.[Mockups](https://www.figma.com/file/JxJoQXyxEe27zRsAp7rA6T/Untitled)
