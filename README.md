@@ -33,4 +33,4 @@ make up
 
 ## Mockup
 
-- Todas as telas foram elaboradas seguindo o prototipo previamente desenhado.[Mockups](https://www.figma.com/file/JxJoQXyxEe27zRsAp7rA6T/Untitled)
+- Todas as telas foram elaboradas seguindo o prototipo previamente desenhado. [Mockups](https://www.figma.com/file/JxJoQXyxEe27zRsAp7rA6T/Untitled)
