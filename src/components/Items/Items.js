@@ -8,30 +8,31 @@ import covid from "../../assets/img/covid.svg";
 import './Items.css';
 
 const Items = (props) => {
-    let {menuSelected, setMenuSelected} = props;
+    let {menuSelected, setMenuSelected, open} = props;
     return(
-        <div>
+        <div className="divItems">
             <ListItem button className="listItem" onClick={() => setMenuSelected('material')}>
                 <Item icon={material} title={"Material Didático"} text={<h2 className="text"> Confira os materiais</h2>}
-                      selected={menuSelected === 'material'}/>
+                      selected={menuSelected === 'material'} open={open}/>
             </ListItem>
             <ListItem button className="listItem" onClick={() => setMenuSelected('adopt')}>
                 <Item icon={adopt} title={"Adotar um Aluno"} text={<h2 className="text"> Ajude quem precisa</h2>}
-                      selected={menuSelected === 'adopt'}
+                      selected={menuSelected === 'adopt'} open={open}
                 />
             </ListItem>
             <ListItem button className="listItem" onClick={() => setMenuSelected('classes')}>
                 <Item icon={classes} title={"Aulas Gravadas"} text={<h2 className="text"> Assista as aulas</h2>}
-                      selected={menuSelected === 'classes'}
+                      selected={menuSelected === 'classes'} open={open}
                 />
             </ListItem>
-            <ListItem button className="listItem" onClick={() => setMenuSelected('covid')}>
+
+            <ListItem button className="lastItem" onClick={() => setMenuSelected('covid')}>
                 <Item icon={covid} title={"Não se sente bem?"}
                       text={
                           <h2 className="text"> Clique aqui e saiba como agir <br/>
                               ao sentir sintomas de Covid-19. </h2>
                       }
-                      selected={menuSelected === 'covid'}
+                      selected={menuSelected === 'covid'} open={open}
                 />
             </ListItem>
 

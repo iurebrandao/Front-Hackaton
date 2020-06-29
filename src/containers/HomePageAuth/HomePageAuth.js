@@ -150,7 +150,7 @@ export default function Dashboard() {
                     </IconButton>
                 </div>
                 <Divider />
-                <Items menuSelected={menuSelected} setMenuSelected={setMenuSelected}/>
+                <Items menuSelected={menuSelected} setMenuSelected={setMenuSelected} open={open}/>
             </Drawer>
             <main className={classes.content}>
                 {

@@ -26,8 +26,16 @@
 .divIcon{
     width: 25%;
 }
+.divIconSelected{
+    width: 100%;
+    transition: width 0.5s;
+}
 .divSelected{
     width: 5%;
+    margin-right: 5px;
+}
+.divSelectedClosed{
+    width: 15%;
     margin-right: 5px;
 }
 .circle{
