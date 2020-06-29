@@ -8,4 +8,7 @@ export default {
     Auth(data) {
         return instance.post('/auth/login', data);
     },
+    SignUp(data) {
+        return instance.post('/auth/users', data);
+    },
 };

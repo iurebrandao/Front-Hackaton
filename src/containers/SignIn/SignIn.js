@@ -72,7 +72,7 @@ class SignIn extends Component {
                 this.setState({ sucessSignIn: true, loadingSignIn: false });
 
                 const expirationDate = new Date(new Date().getTime() + 1111110 * 1000);
-                let token = "tokentesteblabla";
+                let token = "tokentestedeautenticacao";
                 Cookies.set('tk', token, {
                     expires: expirationDate,
                     secure: (window.location.protocol === 'https:')
