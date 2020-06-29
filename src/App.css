@@ -1,5 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+body{
+  font-family: 'Noto Sans', sans-serif;
+}
+
 .App {
   text-align: center;
+}
+
+.app-container{
+  padding: 0px 40px;
 }
 
 .App-logo {

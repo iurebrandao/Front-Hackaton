@@ -25,6 +25,13 @@
     padding-top: 20px;
 }
 
+
 .button-sign-in{
-    width: 100%;
+    width: 100% !important;
+    margin-top: 18px !important;
+    background-color: #008940 !important;
+}
+
+.button-sign-in > span{
+    color: #FFFFFF !important;
 }

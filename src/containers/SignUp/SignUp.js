@@ -252,7 +252,7 @@ class SignUp extends Component {
                                     inputProps={{ 'aria-label': 'secondary checkbox' }}
                                 />
                             </div> */}
-                            <Button className="button-sign-up" onClick={(e) => this.handleSubmit(e)} variant="contained" color="primary">
+                            <Button className="button-sign-up" onClick={(e) => this.handleSubmit(e)} variant="contained" >
                                 Cadastrar
                             </Button>
                         </div>
