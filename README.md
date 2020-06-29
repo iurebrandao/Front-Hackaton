@@ -1,6 +1,6 @@
-# Adote um aluno
+# Adote um aluno (Front-End)
 
-[React](https://reactjs.org/) - **16.9.0**
+[React](https://reactjs.org/) - **16.13.1**
 
 [Node.js](https://nodejs.org/en/) - **12.10.0**
 
