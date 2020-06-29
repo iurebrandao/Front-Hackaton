@@ -11,4 +11,16 @@ export default {
     SignUp(data) {
         return instance.post('/users', data);
     },
+    GetAreas() {
+        return instance.get('/areas');
+    },
+    GetConnections() {
+        return instance.get('/areas');
+    },
+    GetMatchUser() {
+        return instance.get('/areas');
+    },
+    AdoptStudent() {
+        return instance.post('/areas');
+    },
 };
