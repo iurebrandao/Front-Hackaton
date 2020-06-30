@@ -64,34 +64,36 @@ class SignIn extends Component {
             'email': this.state.form.email,
             'password': this.state.form.password
         }
-        this.setState({ loadingSignIn: true });
+        // this.setState({ loadingSignIn: true });
+        //
+        // const expirationDate = new Date(new Date().getTime() + 1111110 * 1000);
+        // let token = "tokentestedeautenticacao";
+        // Cookies.set('tk', token, {
+        //     expires: expirationDate,
+        //     secure: (window.location.protocol === 'https:')
+        // });
+        //
+        // window.location.reload();
 
-        const expirationDate = new Date(new Date().getTime() + 1111110 * 1000);
-        let token = "tokentestedeautenticacao";
-        Cookies.set('tk', token, {
-            expires: expirationDate,
-            secure: (window.location.protocol === 'https:')
-        });
+        axios.Auth(obj)
+            .then((response)=>{
+                debugger;
 
-        window.location.reload();
+                this.setState({ sucessSignIn: true, loadingSignIn: false });
 
-        // axios.Auth(obj)
-        //     .then((response)=>{
-        //         this.setState({ sucessSignIn: true, loadingSignIn: false });
+                const expirationDate = new Date(new Date().getTime() + 1111110 * 1000);
+                let token = response.data.token;
+                Cookies.set('tk', token, {
+                    expires: expirationDate,
+                    secure: (window.location.protocol === 'https:')
+                });
 
-        //         const expirationDate = new Date(new Date().getTime() + 1111110 * 1000);
-        //         let token = "tokentestedeautenticacao";
-        //         Cookies.set('tk', token, {
-        //             expires: expirationDate,
-        //             secure: (window.location.protocol === 'https:')
-        //         });
-
-        //         window.location.reload();
-        //     })
-        //     .catch((error) =>{
-        //         this.setState({ sucessSignIn: false, loadingSignIn: false });
-        //         console.log(error);
-        //     });
+                window.location.reload();
+            })
+            .catch((error) =>{
+                this.setState({ sucessSignIn: false, loadingSignIn: false });
+                console.log(error);
+            });
 
 
         // this.refs.form.validate((valid) => {

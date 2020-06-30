@@ -102,6 +102,10 @@
     background-color: rgba(0, 137, 64, 1) !important;
     color: #ffffff !important;
 }
+.buttonLoading{
+    background-color: rgb(184, 184, 184) !important;
+    color: #959595 !important;
+}
 .image{
     border-radius: 50%;
     width: 100%;
@@ -127,6 +131,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 19px;
+    text-transform: capitalize;
 }
 .textUser{
     font-family: Noto Sans;
@@ -137,6 +142,14 @@
 }
 .divConnections{
     width: calc(100% - 60px);
+}
+.buttonProgress{
+    color: #008940 !important;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
 }
 
 .divBook, .divAnotherBook, .divCar{

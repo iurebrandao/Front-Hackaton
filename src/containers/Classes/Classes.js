@@ -18,7 +18,7 @@ const Classes = (props) => {
                 </div>
             </div>
             <div className="app-block">
-                <h3 className="app-block__title">Engenharia de Software</h3>
+                <h3 className="app-block__title">Circuitos Elétricos</h3>
                 <div>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/pP4MMQP3Vqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/pP4MMQP3Vqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -30,7 +30,7 @@ const Classes = (props) => {
                 </div>
             </div>
             <div className="app-block">
-                <h3 className="app-block__title">Engenharia de Software</h3>
+                <h3 className="app-block__title">Física</h3>
                 <div>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/pP4MMQP3Vqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/pP4MMQP3Vqc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

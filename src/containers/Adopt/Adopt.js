@@ -1,20 +1,116 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import './Adopt.css';
 import Button from '@material-ui/core/Button';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import TextField from '@material-ui/core/TextField';
-import user from "../../assets/img/user.png";
+import userImg from "../../assets/img/user.png";
 import CardConnection from "../../components/CardConnection/CardConnection";
+import axios from "../../axios";
+import Snackbar from '@material-ui/core/Snackbar';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import moment from 'moment';
+import Loading from "../../components/Loading/Loading";
+import MuiAlert from '@material-ui/lab/Alert';
 
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const Adopt = (props) => {
     let {step, setStep} = props;
+    const [areas, setAreas] = useState('adopt');
+    const [open, setOpen] = React.useState(false);
+    const [loadingConnection, setLoadingConnection] = useState(false);
+    const [loadingStudent, setLoadingStudent] = useState(false);
+    const [loadingButtonAdopt, setLoadingButtonAdopt] = useState(false);
+    const [connections, setConnections] = useState([]);
+    const [inputValue, setInputValue] = React.useState([]);
+    const [user, setUser] = useState({
+        id: 0,
+        name: 'David',
+        age: 19,
+        course: 'Engenharia',
+        image: userImg
+    });
 
-    const areas = [
-        { label: 'Eng. De Software', value: 'Eng. De Software' },
-        { label: 'Artes', value: 'Artes' },
-        { label: 'Filosofia', value: 'Filosofia' },
-    ];
+    useEffect(() =>{
+        axios.GetAreas()
+            .then((response) => {
+                let areasResponse = response.data.interests;
+                let areas = [];
+                areasResponse.map((item) =>{
+                    areas.push({
+                        label: item.longName,
+                        value: item.id
+                    })
+                });
+                setAreas(areas);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    },[]);
+
+    useEffect(() =>{
+        if(step === 2){
+            let interests = [];
+            inputValue.map((item) =>{
+               interests.push(item.value);
+            });
+            let data = {
+                'interestIds': interests
+            }
+            setLoadingStudent(true);
+            axios.GetMatchUser(data)
+                .then((response) => {
+                    let connection = response.data[0];
+                    setUser({
+                        id: connection.id,
+                        name: connection.name,
+                        age: moment().diff(connection.birthdate, 'years'),
+                        course: 'Engenharia',
+                        image: connection.photoUrl
+                    });
+                    setLoadingStudent(false);
+                })
+                .catch((error) => {
+                    setLoadingStudent(false);
+                    console.log('error in match',error);
+                });
+        }
+        else if(step === 3){
+            axios.GetConnections()
+                .then((response) => {
+                    debugger;
+                    let connections = response.data.adoptions;
+
+                    setConnections(connections);
+                    setLoadingConnection(false);
+                })
+                .catch((error) => {
+                    setLoadingConnection(false);
+                    console.log('error in connection',error);
+                });
+        }
+    }, [step]);
+
+    const adoptStudent = () =>{
+        setLoadingButtonAdopt(true);
+        let data ={
+            'adopted_id':  user.id
+        };
+        axios.AdoptStudent(data)
+            .then((response) => {
+                setOpen(true);
+                setLoadingButtonAdopt(false);
+                setStep(3);
+            })
+            .catch((error) => {
+                setLoadingButtonAdopt(false);
+                setStep(3);
+                console.log('error in adopt',error);
+            });
+    }
 
     const getStep = () =>{
         switch (step) {
@@ -65,6 +161,9 @@ const Adopt = (props) => {
                                 id="tags-standard"
                                 options={areas}
                                 getOptionLabel={(option) => option.label}
+                                onChange={(event, newValue) => {
+                                    setInputValue(newValue);
+                                }}
                                 renderInput={(params) => (
                                     <TextField
                                         {...params}
@@ -75,7 +174,9 @@ const Adopt = (props) => {
                                 )}
                             />
                             <div className="divButton">
-                                <Button size="large" variant="contained" className="button" onClick={() => setStep(2)}>
+                                <Button size="large" variant="contained" className="button"
+                                        onClick={() => setStep(2)}
+                                >
                                     Avançar
                                 </Button>
                             </div>
@@ -85,35 +186,43 @@ const Adopt = (props) => {
                 )
             case 2:
                 return(
-                    <React.Fragment>
-                        <h2 className="title"> Conheça seu Aluno </h2>
-                        <div className="divOptionsUser">
-                            <div className="divImage">
-                                <img className="image" src={user}/>
-                            </div>
-                            <div className="divTextImage">
-                                <h2 className="titleName">David</h2>
-                                <h2 className="textUser">19 anos</h2>
-                                <h2 className="textUser">Engenharia Mecatrônica</h2>
-                                <h2 className="textUser">Engenharia de Software e Software Básico</h2>
-                            </div>
-                            <div className="divButton">
-                                <Button size="large" variant="contained" className="button" onClick={() => setStep(3)}>
-                                    Conversar com David
-                                </Button>
-                            </div>
-                        </div>
-                    </React.Fragment>
+                    loadingStudent ? (<Loading/>) :
+                        (<React.Fragment>
+                                <h2 className="title"> Aluno(a) encontrado(a) </h2>
+                                <div className="divOptionsUser">
+                                    <div className="divImage">
+                                        <img className="image" src={user.image ? user.image : userImg}/>
+                                    </div>
+                                    <div className="divTextImage">
+                                        <h2 className="titleName">{user.name}</h2>
+                                        <h2 className="textUser">{user.age} anos</h2>
+                                        <h2 className="textUser">{user.course}</h2>
+                                        <h2 className="textUser">{inputValue[0].label}</h2>
+                                    </div>
+                                    <div className="divButton">
+                                        <Button size="large" variant="contained" className={loadingButtonAdopt ? "buttonLoading": "button"}
+                                                onClick={() => adoptStudent()} disabled={loadingButtonAdopt}>
+                                            Adotar {user.name}
+                                            {loadingButtonAdopt && <CircularProgress size={24} className="buttonProgress" />}
+                                        </Button>
+                                    </div>
+                                </div>
+                            </React.Fragment>
+                        )
                 )
             case 3:
                 return(
                     <React.Fragment>
                         <h2 className="title"> Suas conexões </h2>
                         <div className="divConnections">
-                            <CardConnection image={user} name={'David'} age={19} rating={5}/>
-                            <CardConnection image={user} name={'Cleiton'} age={23} rating={4} />
-                            <CardConnection image={user} name={'Jailson'} age={30} rating={2}/>
-                            <CardConnection image={user} name={'Queilson'} age={47} rating={1}/>
+                            {loadingConnection ? (<Loading/>): (
+                                connections.map((user, index) =>{
+                                    return(
+                                        <CardConnection image={user.photoUrl ? user.photoUrl : userImg} name={user.name} age={moment().diff(user.birthdate, 'years')}
+                                                        rating={index}/>
+                                    )
+                                })
+                            )}
                         </div>
                     </React.Fragment>
                 )
@@ -122,6 +231,11 @@ const Adopt = (props) => {
 
     return(
         <div className="main">
+            <Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)}>
+                <Alert onClose={() => setOpen(false)} severity="success">
+                    Aluno(a) adotado(a) com sucesso!
+                </Alert>
+            </Snackbar>
             {getStep()}
         </div>
     )
