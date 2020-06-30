@@ -26,6 +26,7 @@
     font-family: Noto Sans;
     font-weight: bold;
     font-size: 16px;
+    text-transform: capitalize;
     line-height: 22px;
 }
 .subTitleCard{

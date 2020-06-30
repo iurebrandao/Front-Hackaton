@@ -6,33 +6,45 @@ import TextField from '@material-ui/core/TextField';
 import userImg from "../../assets/img/user.png";
 import CardConnection from "../../components/CardConnection/CardConnection";
 import axios from "../../axios";
-import Cookies from "js-cookie";
+import Snackbar from '@material-ui/core/Snackbar';
 import CircularProgress from '@material-ui/core/CircularProgress';
+import moment from 'moment';
+import Loading from "../../components/Loading/Loading";
+import MuiAlert from '@material-ui/lab/Alert';
 
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 
 const Adopt = (props) => {
     let {step, setStep} = props;
     const [areas, setAreas] = useState('adopt');
+    const [open, setOpen] = React.useState(false);
     const [loadingConnection, setLoadingConnection] = useState(false);
     const [loadingStudent, setLoadingStudent] = useState(false);
     const [loadingButtonAdopt, setLoadingButtonAdopt] = useState(false);
     const [connections, setConnections] = useState([]);
+    const [inputValue, setInputValue] = React.useState([]);
     const [user, setUser] = useState({
+        id: 0,
         name: 'David',
         age: 19,
-        course: 'Engenharia'
+        course: 'Engenharia',
+        image: userImg
     });
 
     useEffect(() =>{
-        setAreas([
-            { label: 'Eng. De Software', value: 'Eng. De Software' },
-            { label: 'Artes', value: 'Artes' },
-            { label: 'Filosofia', value: 'Filosofia' },
-        ]);
-
         axios.GetAreas()
             .then((response) => {
-                let areas = response.data.areas;
+                let areasResponse = response.data.interests;
+                let areas = [];
+                areasResponse.map((item) =>{
+                    areas.push({
+                        label: item.longName,
+                        value: item.id
+                    })
+                });
+                setAreas(areas);
             })
             .catch((error) => {
                 console.log(error);
@@ -41,10 +53,24 @@ const Adopt = (props) => {
 
     useEffect(() =>{
         if(step === 2){
-            axios.GetMatchUser()
+            let interests = [];
+            inputValue.map((item) =>{
+               interests.push(item.value);
+            });
+            let data = {
+                'interestIds': interests
+            }
+            setLoadingStudent(true);
+            axios.GetMatchUser(data)
                 .then((response) => {
-                    let connectios = response.data.connectios;
-                    setConnections(connectios);
+                    let connection = response.data[0];
+                    setUser({
+                        id: connection.id,
+                        name: connection.name,
+                        age: moment().diff(connection.birthdate, 'years'),
+                        course: 'Engenharia',
+                        image: connection.photoUrl
+                    });
                     setLoadingStudent(false);
                 })
                 .catch((error) => {
@@ -55,8 +81,10 @@ const Adopt = (props) => {
         else if(step === 3){
             axios.GetConnections()
                 .then((response) => {
-                    let connectios = response.data.connectios;
-                    setConnections(connectios);
+                    debugger;
+                    let connections = response.data.adoptions;
+
+                    setConnections(connections);
                     setLoadingConnection(false);
                 })
                 .catch((error) => {
@@ -68,10 +96,12 @@ const Adopt = (props) => {
 
     const adoptStudent = () =>{
         setLoadingButtonAdopt(true);
-        axios.AdoptStudent()
+        let data ={
+            'adopted_id':  user.id
+        };
+        axios.AdoptStudent(data)
             .then((response) => {
-                let connectios = response.data.connectios;
-                setConnections(connectios);
+                setOpen(true);
                 setLoadingButtonAdopt(false);
                 setStep(3);
             })
@@ -131,6 +161,9 @@ const Adopt = (props) => {
                                 id="tags-standard"
                                 options={areas}
                                 getOptionLabel={(option) => option.label}
+                                onChange={(event, newValue) => {
+                                    setInputValue(newValue);
+                                }}
                                 renderInput={(params) => (
                                     <TextField
                                         {...params}
@@ -142,7 +175,8 @@ const Adopt = (props) => {
                             />
                             <div className="divButton">
                                 <Button size="large" variant="contained" className="button"
-                                        onClick={() => setStep(2)}>
+                                        onClick={() => setStep(2)}
+                                >
                                     Avançar
                                 </Button>
                             </div>
@@ -152,23 +186,23 @@ const Adopt = (props) => {
                 )
             case 2:
                 return(
-                    loadingStudent ? (<CircularProgress/>) :
+                    loadingStudent ? (<Loading/>) :
                         (<React.Fragment>
-                                <h2 className="title"> Conheça seu Aluno </h2>
+                                <h2 className="title"> Aluno(a) encontrado(a) </h2>
                                 <div className="divOptionsUser">
                                     <div className="divImage">
-                                        <img className="image" src={userImg}/>
+                                        <img className="image" src={user.image ? user.image : userImg}/>
                                     </div>
                                     <div className="divTextImage">
                                         <h2 className="titleName">{user.name}</h2>
                                         <h2 className="textUser">{user.age} anos</h2>
                                         <h2 className="textUser">{user.course}</h2>
-                                        <h2 className="textUser">Engenharia de Software e Software Básico</h2>
+                                        <h2 className="textUser">{inputValue[0].label}</h2>
                                     </div>
                                     <div className="divButton">
                                         <Button size="large" variant="contained" className={loadingButtonAdopt ? "buttonLoading": "button"}
                                                 onClick={() => adoptStudent()} disabled={loadingButtonAdopt}>
-                                            Conversar com David
+                                            Adotar {user.name}
                                             {loadingButtonAdopt && <CircularProgress size={24} className="buttonProgress" />}
                                         </Button>
                                     </div>
@@ -181,13 +215,14 @@ const Adopt = (props) => {
                     <React.Fragment>
                         <h2 className="title"> Suas conexões </h2>
                         <div className="divConnections">
-                            {loadingConnection ? (<CircularProgress/>): (
+                            {loadingConnection ? (<Loading/>): (
                                 connections.map((user, index) =>{
                                     return(
-                                        <CardConnection image={user.url} name={user.name} age={user.age} rating={5}/>
+                                        <CardConnection image={user.photoUrl ? user.photoUrl : userImg} name={user.name} age={moment().diff(user.birthdate, 'years')}
+                                                        rating={index}/>
                                     )
                                 })
-                            ) }
+                            )}
                         </div>
                     </React.Fragment>
                 )
@@ -196,6 +231,11 @@ const Adopt = (props) => {
 
     return(
         <div className="main">
+            <Snackbar open={open} autoHideDuration={6000} onClose={() => setOpen(false)}>
+                <Alert onClose={() => setOpen(false)} severity="success">
+                    Aluno(a) adotado(a) com sucesso!
+                </Alert>
+            </Snackbar>
             {getStep()}
         </div>
     )

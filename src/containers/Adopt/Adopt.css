@@ -131,6 +131,7 @@
     font-weight: bold;
     font-size: 18px;
     line-height: 19px;
+    text-transform: capitalize;
 }
 .textUser{
     font-family: Noto Sans;

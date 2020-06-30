@@ -14,6 +14,7 @@
     "axios": "^0.19.2",
     "element-react": "^1.4.34",
     "js-cookie": "^2.2.1",
+    "moment": "^2.27.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-hot-loader": "^4.12.21",
