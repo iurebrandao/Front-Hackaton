@@ -77,8 +77,6 @@ class SignIn extends Component {
 
         axios.Auth(obj)
             .then((response)=>{
-                debugger;
-
                 this.setState({ sucessSignIn: true, loadingSignIn: false });
 
                 const expirationDate = new Date(new Date().getTime() + 1111110 * 1000);
