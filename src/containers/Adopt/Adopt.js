@@ -81,7 +81,6 @@ const Adopt = (props) => {
         else if(step === 3){
             axios.GetConnections()
                 .then((response) => {
-                    debugger;
                     let connections = response.data.adoptions;
 
                     setConnections(connections);
