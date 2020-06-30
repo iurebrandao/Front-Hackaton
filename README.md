@@ -19,7 +19,7 @@ recursos acadêmicos que a pandemia gera para a comunidade acadêmica.
 - Para instalar as dependências do projeto, execute o seguinte comando:
 
 ```
-make build
+npm install
 ```
 ## Como rodar o Projeto
 
@@ -28,7 +28,7 @@ make build
 - Para rodar o projeto neste modo, utilize o comando abaixo:
 
 ```
-make up
+npm start
 ```
 
 ## Mockup
