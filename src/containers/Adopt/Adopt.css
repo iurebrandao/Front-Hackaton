@@ -19,16 +19,21 @@
     line-height: 25px;
     margin: 70px 0 0 20px;
     color: #FFFFFF;
+
+    margin: 0;
+    width: 100%;
 }
 .subtitleOption{
-    font-family: Noto Sans;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 10px;
-    line-height: 14px;
-    text-align: justify;
+    font-family: 'Noto Sans';
     margin: 10px 5px 0 20px;
+    margin-left: 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 21px;
     color: #FFFFFF;
+    margin-right: 0px;
+    text-align: left;
 }
 .main{
     padding: 20px 0 0 60px;
@@ -144,4 +149,12 @@
     left: 50%;
     margin-top: -12px;
     margin-left: -12px;
+}
+
+.divBook, .divAnotherBook, .divCar{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px 16px;
 }
