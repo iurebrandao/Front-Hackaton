@@ -112,8 +112,14 @@
     height: 100%;
 }
 .divImage{
-    width: 35%;
+    width: 150px;
     display: inline-block;
+    text-align: center;
+    height: 150px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
 }
 .divTextImage{
     width: calc(65% - 50px);

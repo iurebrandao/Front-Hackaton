@@ -189,9 +189,7 @@ const Adopt = (props) => {
                         (<React.Fragment>
                                 <h2 className="title"> Aluno(a) encontrado(a) </h2>
                                 <div className="divOptionsUser">
-                                    <div className="divImage">
-                                        <img className="image" src={user.image ? user.image : userImg}/>
-                                    </div>
+                                    <div className="divImage" style={{backgroundImage: `url(${user.image})`}}/>
                                     <div className="divTextImage">
                                         <h2 className="titleName">{user.name}</h2>
                                         <h2 className="textUser">{user.age} anos</h2>

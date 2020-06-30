@@ -23,7 +23,7 @@ const StyledRating = withStyles({
         color: '#02397A',
     },
     iconHover: {
-        color: '#164379',
+        color: '#02397A',
     },
 })(Rating);
 
@@ -60,9 +60,7 @@ const CardConnection = (props) =>{
 
     return(
         <div className="cardConnection">
-            <div className="divImage">
-                <Avatar alt="User" src={image} className={classes.large} />
-            </div>
+            <div className="divImageCard" style={{backgroundImage: `url(${image})`}}/>
             <div className="divInfo">
                 <div className="divRatingTitle">
                     <h2 className="titleCardName">{name}</h2>

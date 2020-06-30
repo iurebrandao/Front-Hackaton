@@ -7,12 +7,16 @@
     display: inline-block;
     height: 25vh;
 }
-.divImage{
-    width: 30%;
+.divImageCard{
+    width: 75px;
     display: inline-block;
     text-align: center;
-    height: 100%;
+    height: 75px;
     padding: 20px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 20px 0 0 10px;
 }
 .divInfo{
     display: inline-block;
